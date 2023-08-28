@@ -56,16 +56,15 @@ function decode(expr) {
             for(j=0;j<10;j+=2){
                 symb2 = symb1.slice(j,j+2);
                 
+                symb3 = '';
                 if (symb2 === '11'){
                     symb3 = '-';
                 }
                 else if (symb2 === '10'){
-                    symb3 = '.'
+                    symb3 = '.';
                 }
-                else{
-                    symb3 = '';
-                }
-                morzeStr += symb3;
+              
+                morzeStr += symb3;                
             }
     
             for (let key in MORSE_TABLE){
