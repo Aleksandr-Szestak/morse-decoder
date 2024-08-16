@@ -40,35 +40,36 @@ const MORSE_TABLE = {
 
 // --------------------------------------------------------
 function decode(expr) {
-    let i,j;
+    let i, j;
     let symb1, symb2, symb3;
     let morzeStr, decodeS;
     let rez = '';
     
-    for(i=0;i<expr.length;i+=10){
-        symb1 = expr.slice(i,i+10);
+    for(i = 0; i < expr.length; i += 10) {
+        symb1 = expr.slice(i, i + 10);
 
-        if (symb1 === '**********'){
+        if (symb1 === '**********') {
             decodeS = ' ';
         }
-        else{
+        else {
             morzeStr = '';
-            for(j=0;j<10;j+=2){
-                symb2 = symb1.slice(j,j+2);
-                
+
+            for(j = 0; j < 10; j += 2) {
+                symb2 = symb1.slice(j, j + 2);
+               
                 symb3 = '';
-                if (symb2 === '11'){
+                if (symb2 === '11') {
                     symb3 = '-';
                 }
-                else if (symb2 === '10'){
+                else if (symb2 === '10') {
                     symb3 = '.';
                 }
               
                 morzeStr += symb3;                
             }
     
-            for (let key in MORSE_TABLE){
-                if (key === morzeStr){
+            for (let key in MORSE_TABLE) {
+                if (key === morzeStr) {
                     decodeS = MORSE_TABLE[key];
                     break;
                 }
